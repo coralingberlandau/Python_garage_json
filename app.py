@@ -1,6 +1,6 @@
 """
 data structure
-cars = {'NCar': 'polo', 'Modol': '2024', 'Color': 'black', 'UName': 'coral'}
+cars = {'NCar': 'polo', 'Model': '2024', 'Color': 'black', 'UName': 'coral'}
 """
 
 from enum import Enum
@@ -23,21 +23,20 @@ def display_menu():
     for men in Menu: print (f'{men.value} - {men.name}')
     return Menu (int(input("please enter what you need:")))
 
-
 if __name__ == "__main__":
-        try: 
-            car = load_data_from_json('db/cars.json')
+            cars = load_data_from_json('db/cars.json')
             while True:
-                select_user = display_menu()
-                if select_user == Menu.ADD: add_car(cars)
-                if select_user == Menu.PRINT: print_data(cars)
-                if select_user == Menu.DELETE: delete_car(cars)
-                if select_user == Menu.UPDATE: update_car(cars)
-                if select_user == Menu.SUM: sum_cars(cars)
-                if select_user == Menu.RESTART: restart_data_from_json('db/cars.json')
-                if select_user == Menu.EXIT:
-                    seve_data_to_json('db/cars.json', cars)
-                    exit()
-        except Exception as e:
-            print("Error:", e)
-            print("Recharge")
+                try: 
+                    select_user = display_menu()
+                    if select_user == Menu.ADD: add_car(cars)
+                    if select_user == Menu.PRINT: print_data(cars)
+                    if select_user == Menu.DELETE: delete_car(cars)
+                    if select_user == Menu.UPDATE: update_car(cars)
+                    if select_user == Menu.SUM: sum_cars(cars)
+                    if select_user == Menu.RESTART: restart_data_from_json('db/cars.json')
+                    if select_user == Menu.EXIT:
+                        seve_data_to_json('db/cars.json', cars)
+                        exit()
+                except Exception as e:
+                    print("Error:", e)
+                    print("Recharge")

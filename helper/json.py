@@ -1,10 +1,5 @@
 import json
 
-def restart_data_from_json(filename):
-    cars = []
-    with open(filename, 'w') as file:
-        json.dump(cars, file)
-
 def load_data_from_json(filename):
     try:
         with open(filename, "r") as file:
@@ -17,3 +12,9 @@ def load_data_from_json(filename):
 def seve_data_to_json(filename, cars):
     with open(filename, "w") as file:
         json.dump(cars, file)
+
+def restart_data_from_json(filename):
+    cars = []
+    with open(filename, 'w') as file:
+        json.dump(cars, file)
+    seve_data_to_json(filename, cars)
